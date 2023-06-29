@@ -1,1 +1,26 @@
-
+#seat-input {
+    margin-bottom: 10px;
+  }
+  
+  #seat-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .seat-row {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .seat.selected {
+    background-color: #ffcc00;
+  }
+  

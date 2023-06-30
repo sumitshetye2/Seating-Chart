@@ -1,10 +1,24 @@
 #seat-input {
-    margin-bottom: 10px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+  }
+  
+  #seat-selector {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+    overflow: hidden;
   }
   
   #seat-layout {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    max-height: calc(100% - 50px); /* Adjust the height based on other content if needed */
+    overflow-y: auto;
   }
   
   .seat-row {
@@ -22,5 +36,11 @@
   
   .seat.selected {
     background-color: #ffcc00;
+  }
+
+  #selection-details {
+    position: fixed;
+    top: 10px;
+    left: 10px;
   }
   

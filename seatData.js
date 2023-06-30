@@ -7,6 +7,8 @@ let totalCost = document.getElementById('cost-of-seats-selected');
 let totalSeats = document.getElementById('num-selected-seats');
 let seatsSelected = document.getElementById('seats');
 let seats = [];
+let charCodeOffset = 1
+let row = String.fromCharCode(64 + charCodeOffset);
 
 // Handle Add Row button click
 addRowBtn.addEventListener('click', () => {
@@ -20,7 +22,10 @@ addRowBtn.addEventListener('click', () => {
   } else {
     // Append new row to the seat layout
     generateRow(seatsPerRow);
+    charCodeOffset = charCodeOffset + 1;
+    row = String.fromCharCode(64 + charCodeOffset);
   }
+
 });
 
 // Handle Edit Row button click
@@ -33,11 +38,11 @@ function generateRow(seatsPerRow) {
   rowElement.className = 'seat-row';
 
   for (let column = 1; column <= seatsPerRow; column++) {
-    const seatLabel = String.fromCharCode(64 + column);
+    //const seatLabel = String.fromCharCode(64 + column);
     const seatElement = document.createElement('div');
-    seatElement.id = `seat-${seatLabel}-${column}`;
-    seatElement.className = 'seat';
-    seatElement.innerText = `${seatLabel}-${column}`;
+    seatElement.id = `seat-${row}-${column}`;
+    seatElement.className = 'seat seat-custom';
+    seatElement.innerText = `${row}-${column}`;
     seatElement.dataset.cost = price.value;
     rowElement.appendChild(seatElement);
   }

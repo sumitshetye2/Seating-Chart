@@ -27,11 +27,19 @@
   }
   
   .seat {
-    width: 40px;
-    height: 40px;
-    background-color: #ccc;
-    border-radius: 5px;
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
     cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    line-height: 25px
+    
+  }
+
+  .seat-custom {
+    background-image: url('seat.png');
   }
   
   .seat.selected {

@@ -4,6 +4,7 @@ const addRowBtn = document.getElementById('add-row-btn');
 const seatLayout = document.getElementById('seat-layout');
 const price = document.getElementById('price-of-row');
 let totalCost = document.getElementById('cost-of-seats-selected'); 
+let totalSeats = document.getElementById('selected-seats');
 
 // Handle Add Row button click
 addRowBtn.addEventListener('click', () => {
@@ -44,11 +45,15 @@ function generateRow(seatsPerRow) {
     // Toggle selected class
     selectedSeat.classList.toggle('selected');
 
+
+
     //update total cost of seats selected
     if(selectedSeat.classList.contains('selected')){
+      totalSeats.innerText = parseInt(totalSeats.innerText) + parseInt(1);
       totalCost.innerText = parseInt(totalCost.innerText) + parseInt(selectedSeat.dataset.cost);
     } else {
         totalCost.innerText = parseInt(totalCost.innerText) - parseInt(selectedSeat.dataset.cost);
+        totalSeats.innerText = parseInt(totalSeats.innerText) - parseInt(1);
     }
     
 

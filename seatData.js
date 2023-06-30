@@ -3,7 +3,7 @@ const seatsPerRowInput = document.getElementById('seats-per-row-input');
 const addRowBtn = document.getElementById('add-row-btn');
 const seatLayout = document.getElementById('seat-layout');
 const price = document.getElementById('price-of-row');
-let totalCost = 0; 
+let totalCost = document.getElementById('cost-of-seats-selected'); 
 
 // Handle Add Row button click
 addRowBtn.addEventListener('click', () => {
@@ -43,6 +43,14 @@ function generateRow(seatsPerRow) {
 
     // Toggle selected class
     selectedSeat.classList.toggle('selected');
+
+    //update total cost of seats selected
+    if(selectedSeat.classList.contains('selected')){
+      totalCost.innerText = parseInt(totalCost.innerText) + parseInt(selectedSeat.dataset.cost);
+    } else {
+        totalCost.innerText = parseInt(totalCost.innerText) - parseInt(selectedSeat.dataset.cost);
+    }
+    
 
     // Update availability or perform any other necessary actions
   });

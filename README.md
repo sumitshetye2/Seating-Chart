@@ -6,3 +6,4 @@ interactive seating chart for event seating
 - [ ] Add feature to edit a row
 - [ ] Create a block seats feature
 - [ ] Add a "Purchase Seats" Feature
+- [ ] Make Webpage look nice/User Friendly

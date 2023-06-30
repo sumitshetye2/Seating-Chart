@@ -4,7 +4,9 @@ const addRowBtn = document.getElementById('add-row-btn');
 const seatLayout = document.getElementById('seat-layout');
 const price = document.getElementById('price-of-row');
 let totalCost = document.getElementById('cost-of-seats-selected'); 
-let totalSeats = document.getElementById('selected-seats');
+let totalSeats = document.getElementById('num-selected-seats');
+let seatsSelected = document.getElementById('seats');
+let seats = [];
 
 // Handle Add Row button click
 addRowBtn.addEventListener('click', () => {
@@ -20,6 +22,10 @@ addRowBtn.addEventListener('click', () => {
     generateRow(seatsPerRow);
   }
 });
+
+// Handle Edit Row button click
+
+
 
 // Function to generate a row
 function generateRow(seatsPerRow) {
@@ -38,8 +44,8 @@ function generateRow(seatsPerRow) {
 
   seatLayout.appendChild(rowElement);
 
-  // Handle seat selection
-  rowElement.addEventListener('click', (event) => {
+    // Handle seat selection
+    rowElement.addEventListener('click', (event) => {
     const selectedSeat = event.target;
 
     // Toggle selected class
@@ -51,12 +57,16 @@ function generateRow(seatsPerRow) {
     if(selectedSeat.classList.contains('selected')){
       totalSeats.innerText = parseInt(totalSeats.innerText) + parseInt(1);
       totalCost.innerText = parseInt(totalCost.innerText) + parseInt(selectedSeat.dataset.cost);
+      seats.push(selectedSeat.innerText);
+      seatsSelected.innerText = seats.join(', ');
+      
     } else {
         totalCost.innerText = parseInt(totalCost.innerText) - parseInt(selectedSeat.dataset.cost);
         totalSeats.innerText = parseInt(totalSeats.innerText) - parseInt(1);
+        seats.splice(seats.indexOf(selectedSeat.innerText), 1);
+        seatsSelected.innerText = seats.join(', ');
     }
-    
-
     // Update availability or perform any other necessary actions
   });
 }
+
